@@ -9,5 +9,9 @@ output: html_document
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+#The next code chunk is used to install necessary package for the project:
+```{r packages}
+library(tidyverse)
+```
 
 
