@@ -5,13 +5,31 @@ date: "`r Sys.Date()`"
 output: html_document
 ---
 
+#File setup:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-#The next code chunk is used to install necessary package for the project:
-```{r packages}
+#Install tidyverse without installation message:
+```{r message=FALSE}
 library(tidyverse)
 ```
 
+
+
+
+
+
+
+#Adding Introduction:
+  Outer membrane vesicles (OMVs) are derived from Gram-negative bacteria, are formed through a budding and release mechanism on the outer membrane.  The spheres are ranged between 20-200 nm in diameter, encapsulated mostly by lipids.They contain bioactive proteins and other components and thus may play biological roles to the neighboring microbiome community and to the host. 
+  Although the production of OMVs have been well-reported and documented, the mechanism behind is still not quite clear; investigation on their formation mechanisms and bioactive roles is still required. This study tracked the growth and vesiculation values of the whole genome knockout library of Escherichia coli mutant strains through a high-throughput experimental method and systems-scale analysis. The mutations were reported to truncate the structure of the OMVs and led to hypervesiculation.
+
+
+
+
+#To determine the session info:
+install.packages("devtools")
+library(devtools)
+session_info()
 
