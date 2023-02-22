@@ -16,7 +16,10 @@ library(tidyverse)
 ```
 
 
-
+#Loading data:
+```{r data}
+vesiculation<- read_csv("../Data/vesiculation.csv")
+```
 
 
 
