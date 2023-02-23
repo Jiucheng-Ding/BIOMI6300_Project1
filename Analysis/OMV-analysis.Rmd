@@ -20,7 +20,6 @@ knitr::opts_chunk$set(echo = TRUE)
 #Install tidyverse without installation message:
 ```{r packages}
 library(tidyverse)
-library(dp)
 ```
 
 #Loading data of OMV production values:
@@ -29,7 +28,7 @@ vesiculation<- read_csv("../Data/vesiculation.csv")
 ```
 #Perfrom some analysis with this OMV production data:
 #The data file shows the difference in OMV production of the gene-knockout library comparing to their normal state.
-```{r data}
+```{r analysis}
 summarize(vesiculation, 
           averageLogOMV=mean(average.log.OMV), 
           minimumLogOMV=min(average.log.OMV),
@@ -45,7 +44,7 @@ summarize(vesiculation,
 ```
 
 #Then make scatterplot to show the distribution of OMV production change (linear) for all samples, with a few outliers removed.
-```{r data}
+```{r figure1}
 ggplot(data=vesiculation) +
   aes(x=bID) + 
   labs(x= "E.coli K12 unique identifier") +
@@ -61,7 +60,7 @@ Figure1: This scatterplot shows the OMV production change in antilog, linear. Ea
 
 
 #Let's make another figure with same data, but in log10 scale.
-```{r data}
+```{r figure2}
 ggplot(data=vesiculation) +
   aes(x=bID) + 
   labs(x= "E.coli K12 unique identifier") +
@@ -76,19 +75,19 @@ Figure2:This scatterplot shows the OMV production change in log10. Each dot repr
 
 
 #Make a histogram showing the frequency.
-
-```{r data}
+```{r figure3}
 ggplot(data=vesiculation) +
   aes(x=average.log.OMV) +
   labs(x="Change on OMV production, log10") +
   aes(y=..count..) +
   labs(y="Frequency") +
   scale_y_continuous(breaks = seq(0, 140, by = 20))+
-  geom_histogram(binwidth=0.01) +
+  geom_histogram(fill="transparent",color="black",binwidth=0.01) +
+  geom_vline(xintercept=0, color="blue",size=0.7, linetype="dashed") +
   labs(title="Distribution of OMV production in log10")
 
 ```
-Figure3:Histogram.
+Figure3:Histogram for the distribution of change on OMV production relative to the normal state of E.coli. In log 10. The blue dashed line shows when change on OMV production is 0, meaning there is no change. 
 
 
 
