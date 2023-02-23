@@ -6,8 +6,8 @@ output: html_document
 ---
 
 #File setup:
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+```{r setup, include=TRUE}
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
@@ -36,8 +36,23 @@ summarize(vesiculation,
           averageSTDEVAntilog=mean(stdev.antilog))
 ```
 
+#Then make scatterplot to show the distribution of OMV production change (linear) for all samples, with a few outliers removed.
+```{r data}
+ggplot(data=vesiculation) +
+  aes(x=bID) + 
+  labs(x= "E.coli K12 unique identifier") +
+  aes(y=average.antilog.omv) +
+  ylim(-1,7.5) +
+  labs(y="Average OMV production compare to normal state, in antilog")+
+  geom_point(size=0.24)+
+  geom_hline(yintercept=1, color="blue", linetype="solid", size=1.15)+
+  labs(title = "Average impact on OMV production")
+```
 
+```{r}
+library(ggplot2)
 
+```
 
 
 
