@@ -34,6 +34,7 @@ summarize(vesiculation,
           minimumLogOMV=min(average.log.OMV),
           maximumLogOMV=max(average.log.OMV),
           medianLogOMV=median(average.log.OMV),
+          stdevLogOMV=sd(average.log.OMV),
           
           averageAntilogOMV=mean(average.antilog.omv),
           minimumAntilogOMV=min(average.antilog.omv),
@@ -82,12 +83,17 @@ ggplot(data=vesiculation) +
   aes(y=..count..) +
   labs(y="Frequency") +
   scale_y_continuous(breaks = seq(0, 140, by = 20))+
-  geom_histogram(fill="transparent",color="black",binwidth=0.01) +
-  geom_vline(xintercept=0, color="blue",size=0.7, linetype="dashed") +
-  labs(title="Distribution of OMV production in log10")
+  geom_histogram(color="black",binwidth=0.01) +
+  geom_vline(aes(xintercept=0, color="No Change in OMV"), size=0.7, linetype="solid") +
+  geom_vline(aes(xintercept=mean(vesiculation$average.log.OMV), color="Mean"), size=0.7, linetype="dashed") +
+  scale_color_manual(values=c("No Change in OMV"="blue", "Mean"="orange")) +
+  labs(title="Distribution of OMV production in log10", color="") 
 
 ```
 Figure3:Histogram for the distribution of change on OMV production relative to the normal state of E.coli. In log 10. The blue dashed line shows when change on OMV production is 0, meaning there is no change. 
+
+
+
 
 
 
