@@ -10,23 +10,36 @@ output: html_document
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-#Install tidyverse without installation message:
-```{r message=FALSE}
-library(tidyverse)
-```
-
-
-#Loading data:
-```{r data}
-vesiculation<- read_csv("../Data/vesiculation.csv")
-```
-
-
-
 
 #Adding Introduction:
   Outer membrane vesicles (OMVs) are derived from Gram-negative bacteria, are formed through a budding and release mechanism on the outer membrane.  The spheres are ranged between 20-200 nm in diameter, encapsulated mostly by lipids.They contain bioactive proteins and other components and thus may play biological roles to the neighboring microbiome community and to the host. 
-  Although the production of OMVs have been well-reported and documented, the mechanism behind is still not quite clear; investigation on their formation mechanisms and bioactive roles is still required. This study tracked the growth and vesiculation values of the whole genome knockout library of Escherichia coli mutant strains through a high-throughput experimental method and systems-scale analysis. The mutations were reported to truncate the structure of the OMVs and led to hypervesiculation.
+  Although the production of OMVs have been well-reported and documented, the mechanism behind is still not quite clear; investigation on their formation mechanisms and bioactive roles is still required. This study tracked the growth and vesiculation values of the whole genome knockout library of Escherichia coli mutant strains through a high-throughput experimental method and systems-scale analysis. The mutations were reported to truncate the structure of the OMVs and led to hypervesiculation, and mutants in oxidative stress perform lowered level of vesiculation in E.coli.
+  
+  
+  
+#Install tidyverse without installation message:
+```{r packages}
+library(tidyverse)
+library(dp)
+```
+
+#Loading data of OMV production values:
+```{r data}
+vesiculation<- read_csv("../Data/vesiculation.csv")
+```
+#Perfrom some analysis with this OMV production data:
+#The data file shows the difference in OMV production of the gene-knockout library comparing to their normal state.
+```{r data}
+summarize(vesiculation, 
+          averageLogOMV=mean(average.log.OMV), 
+          averageAntilogOMV=mean(average.antilog.omv),
+          averageSTDEVAntilog=mean(stdev.antilog))
+```
+
+
+
+
+
 
 
 
