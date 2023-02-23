@@ -32,7 +32,17 @@ vesiculation<- read_csv("../Data/vesiculation.csv")
 ```{r data}
 summarize(vesiculation, 
           averageLogOMV=mean(average.log.OMV), 
+          minimumLogOMV=min(average.log.OMV),
+          maximumLogOMV=max(average.log.OMV),
+          medianLogOMV=median(average.log.OMV),
+          
+          
           averageAntilogOMV=mean(average.antilog.omv),
+          minimumAntilogOMV=min(average.antilog.omv),
+          maximumAntilogOMV=max(average.antilog.omv),
+          medianAntilogOMV=median(average.antilog.omv),
+          
+          
           averageSTDEVAntilog=mean(stdev.antilog))
 ```
 
@@ -64,8 +74,10 @@ ggplot(data=vesiculation) +
   geom_hline(yintercept=-0.02552768, color="orange",linetype="dashed", size=0.7)
   labs(title = "Average impact on OMV production (Log10)")
 ```
-Figure2:This scatterplot shows the OMV production change in log10. Each dot represents an individual sample.The blue solid has a y-intercept of 0, indicating that the values above this line have an increased OMV production; those below represent those with lowered OMV production.
+Figure2:This scatterplot shows the OMV production change in log10. Each dot represents an individual sample.The blue solid has a y-intercept of 0, indicating that the values above this line have an increased OMV production; those below represent those with lowered OMV production level.
 
+
+#Make a histogram showing the frequency.
 
 
 
