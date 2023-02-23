@@ -42,17 +42,14 @@ ggplot(data=vesiculation) +
   aes(x=bID) + 
   labs(x= "E.coli K12 unique identifier") +
   aes(y=average.antilog.omv) +
-  ylim(-1,7.5) +
-  labs(y="Average OMV production compare to normal state, in antilog")+
+  ylim(-1,8)+
+  labs(y="Average OMV Production Change (Folds)")+
   geom_point(size=0.24)+
   geom_hline(yintercept=1, color="blue", linetype="solid", size=1.15)+
-  labs(title = "Average impact on OMV production")
+  labs(title = "Average impact on OMV production (Antilogged, Linear)")
 ```
+Figure1: This scatterplot shows the OMV production change in antilog, linear. Each dot represents an individual sample.A few outliers above 8 folds are ignored. The blue solid has a y-intercept of 1, indicating that the values above this line have an increased OMV production; those below represent those with lowered OMV production.
 
-```{r}
-library(ggplot2)
-
-```
 
 
 
