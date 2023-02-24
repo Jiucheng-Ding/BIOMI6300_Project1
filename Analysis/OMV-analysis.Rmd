@@ -6,6 +6,8 @@ output:
   html_document: 
     bibliography: Kulp_et_al.bib
     csl: apa-single-spaced.csl
+    nocite: |
+      @*
 ---
 
 #File setup:
@@ -14,8 +16,10 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
+
 #Adding Introduction:
-  Outer membrane vesicles (OMVs) are derived from Gram-negative bacteria, are formed through a budding and release mechanism on the outer membrane.  The spheres are ranged between 20-200 nm in diameter, encapsulated mostly by lipids.They contain bioactive proteins and other components and thus may play biological roles to the neighboring microbiome community and to the host. 
+  Outer membrane vesicles (OMVs) are derived from Gram-negative bacteria, are formed through a budding and release mechanism on the outer membrane.  The spheres are ranged between 20-200 nm in diameter, encapsulated mostly by lipids.They contain bioactive proteins and other components and thus may play biological roles to the neighboring microbiome community and to the host. According to @Kulp2019, outer membrane vesicles play an important role in bacterial communication.
+
   Although the production of OMVs have been well-reported and documented, the mechanism behind is still not quite clear; investigation on their formation mechanisms and bioactive roles is still required. This study tracked the growth and vesiculation values of the whole genome knockout library of Escherichia coli mutant strains through a high-throughput experimental method and systems-scale analysis. The mutations were reported to truncate the structure of the OMVs and led to hypervesiculation, and mutants in oxidative stress perform lowered level of vesiculation in E.coli.
   
   
@@ -84,10 +88,7 @@ ggplot(data=vesiculation) +
   geom_hline(yintercept=-0.02552768, color="orange",linetype="dashed", size=0.7)+
   labs(title = "Average impact on OMV production (Log10)")
 ```
-Figure2:This scatterplot shows the OMV production change in log10. Each dot represents an individual sample.The blue solid has a y-intercept of 0, indicating that the values above this line have an increased OMV production; those below represent those with lowered OMV production level.
-
-
-
+Figure2: This scatterplot shows the OMV production change in log10. Each dot represents an individual sample.The blue solid line has a y-intercept of 0, indicating that the values above this line have an increased OMV production; those below represent those with lowered OMV production level. The orange dashed line indicates the mean value of change in OMV production, in log10.
 
 
 
@@ -107,14 +108,22 @@ ggplot(data=vesiculation) +
   geom_vline(xintercept=mean(vesiculation$average.log.OMV), color="orange", size=0.7, linetype="dashed") +
   labs(title="Distribution of OMV production in log10")
 ```
-Figure3:Histogram for the distribution of change on OMV production relative to the normal state of E.coli. In log 10. The blue dashed line shows when change on OMV production is 0, meaning there is no change. 
+Figure3: Histogram for the distribution of change on OMV production relative to the normal state of E.coli. X-axis shows the changed value whereas Y-axis shows the frequency. The blue solid line shows when change on OMV production is 0, indicating the change at here equals 0. The orange dashed line shows the mean change in OMV production of all samples.
+
+
+
+
+Discussion and conclusion:
+
+
+
 
 
 
 
 # References
 ```{r references}
-<div id="refs"></div>
+<div id="refs"> </div>
 ```
 #To determine the session info:
 ```{r devtools}
