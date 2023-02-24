@@ -3,10 +3,10 @@ title: "BIOMI6300_Project1:OMV_Analysis"
 author: "Jiucheng Ding"
 date: "`r Sys.Date()`"
 output:
-  html_document: 
-    bibliography: "~/Desktop/Project1/Kulp2015.bibtex"
+  html_document:
+    bibliography: ~/Desktop/Project1/Kulp2015.bibtex
     csl: "~/Desktop/Project1/Analysis/apa-single-spaced.csl"
-#Tried hours and failed to add the reference. May ask the professor during office hour or sometime else. 
+  pdf_document: default
 ---
 
 #File setup:
@@ -120,8 +120,7 @@ Discussion and conclusion:
 
 
 #To determine the session info:
-```{r devtools}
-install.packages("devtools")
+```{r devtools, include=TRUE}
 library(devtools)
 session_info()
 ```
