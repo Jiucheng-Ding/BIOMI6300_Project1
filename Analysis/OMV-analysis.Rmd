@@ -53,7 +53,7 @@ summarize(vesiculation,
 
 
 #Then make scatterplot to show the distribution of OMV production change (Antilogged) for all samples, with a few outliers removed.
-```{r figure1}
+```{r figure1, warning=FALSE}
 ggplot(data=vesiculation) +
   aes(x=bID) + 
   labs(x= "E.coli K12 unique identifier") +
