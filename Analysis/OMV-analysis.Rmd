@@ -2,7 +2,9 @@
 title: "BIOMI6300_Project1:OMV_Analysis"
 author: "Jiucheng Ding"
 date: "`r Sys.Date()`"
-output: html_document
+output:
+  html_document: default
+  pdf_document: default
 ---
 
 #File setup:
@@ -28,7 +30,7 @@ vesiculation<- read_csv("../Data/vesiculation.csv")
 ```
 #Perfrom some analysis with this OMV production data:
 #The data file shows the difference in OMV production of the gene-knockout library comparing to their normal state.
-```{r analysis}
+```{r some analysis}
 summarize(vesiculation, 
           averageLogOMV=mean(average.log.OMV), 
           minimumLogOMV=min(average.log.OMV),
@@ -68,8 +70,8 @@ ggplot(data=vesiculation) +
   aes(y=average.log.OMV) +
   labs(y="Average OMV Production Change (log10 of Folds)")+
   geom_point(size=0.25, alpha=0.6)+
-  geom_hline(yintercept=0, color="blue", linetype="solid", size=1)+
-  geom_hline(yintercept=-0.02552768, color="orange",linetype="dashed", size=0.7)
+  geom_hline(yintercept=0, color="blue",linetype="solid", size=1)+
+  geom_hline(yintercept=-0.02552768, color="orange",linetype="dashed", size=0.7)+
   labs(title = "Average impact on OMV production (Log10)")
 ```
 Figure2:This scatterplot shows the OMV production change in log10. Each dot represents an individual sample.The blue solid has a y-intercept of 0, indicating that the values above this line have an increased OMV production; those below represent those with lowered OMV production level.
@@ -84,11 +86,9 @@ ggplot(data=vesiculation) +
   labs(y="Frequency") +
   scale_y_continuous(breaks = seq(0, 140, by = 20))+
   geom_histogram(color="black",binwidth=0.01) +
-  geom_vline(aes(xintercept=0, color="No Change in OMV"), size=0.7, linetype="solid") +
-  geom_vline(aes(xintercept=mean(vesiculation$average.log.OMV), color="Mean"), size=0.7, linetype="dashed") +
-  scale_color_manual(values=c("No Change in OMV"="blue", "Mean"="orange")) +
-  labs(title="Distribution of OMV production in log10", color="") 
-
+  geom_vline(xintercept=0, color="blue", size=0.7, linetype="solid") +
+  geom_vline(xintercept=mean(vesiculation$average.log.OMV), color="orange", size=0.7, linetype="dashed") +
+  labs(title="Distribution of OMV production in log10")
 ```
 Figure3:Histogram for the distribution of change on OMV production relative to the normal state of E.coli. In log 10. The blue dashed line shows when change on OMV production is 0, meaning there is no change. 
 
